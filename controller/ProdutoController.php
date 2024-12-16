@@ -4,15 +4,23 @@ class ProdutoController {
 
     public function __construct() {}
 
-    public function index() {}
+    public function index() {
+        header('Location: ../view/produto/mostrar_tudo.php');
+    }
 
-    public function show(int $id) {}
+    public function show(int $id) {
+        header('Location: ../view/produto/mostrar_registro.php');
+    }
 
-    public function create() {}
+    public function create() {
+        header('Location: ../view/produto/novo.php');
+    }
 
     public function store() {}
 
-    public function edit(int $id) {}
+    public function edit(int $id) {
+        header('Location: ../view/produto/editar.php');
+    }
 
     public function update(int $id) {}
 
