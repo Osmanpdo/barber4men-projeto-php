@@ -1,6 +1,6 @@
 <?php
 
-class Compras {
+class Compra {
 
     private int $id;
     private int $cliente_id;

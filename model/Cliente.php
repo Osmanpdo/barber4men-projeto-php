@@ -1,6 +1,6 @@
 <?php
 
-class Clientes {
+class Cliente {
     
     private int $id;
     private string $nome;

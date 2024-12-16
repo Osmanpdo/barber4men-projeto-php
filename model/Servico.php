@@ -1,6 +1,6 @@
 <?php
 
-class Servicos {
+class Servico {
 
     private int $id;
     private string $nome;
