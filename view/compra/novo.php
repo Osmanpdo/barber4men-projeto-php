@@ -9,6 +9,10 @@
     <h1>Nova Compra</h1>
 
     <form action="" method="post">
+        <label for="clienteId">Cliente ID: </label>
+        <input type="number" name="clienteId" id="data" required>
+        <label for="produtoId">Produto ID: </label>
+        <input type="number" name="produtoId" id="data" required>
         <label for="data">Data: </label>
         <input type="date" name="data" id="data" required>
         <label for="horario">Horário</label>

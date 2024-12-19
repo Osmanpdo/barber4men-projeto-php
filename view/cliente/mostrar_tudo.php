@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela de Dados</title>
-    <link rel="stylesheet" href="../global.css">
-</head>
+    <link rel="stylesheet" href="../css/global.css"></head>
 <body>
     <h2>Tabela de Dados Aleatórios</h2>
     <table>

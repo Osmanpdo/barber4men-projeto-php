@@ -9,7 +9,7 @@ class AgendamentoController {
     }
 
     public function show(int $id) {
-        header('Location: ../view/agendamento/mostrar_registro.php');
+        header("Location: ../view/agendamento/mostrar_registro.php?id=$id");
     }
 
     public function create() {
@@ -19,7 +19,7 @@ class AgendamentoController {
     public function store() {}
 
     public function edit(int $id) {
-        header('Location: ../view/agendamento/editar.php');
+        header("Location: ../view/agendamento/editar.php?id=$id");
     }
 
     public function update(int $id) {}

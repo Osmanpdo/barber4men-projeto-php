@@ -9,6 +9,10 @@
     <h1>Novo Agendamento</h1>
 
     <form action="" method="post">
+        <label for="clienteId">Cliente ID: </label>
+        <input type="number" name="clienteId" id="data" value="1" required>
+        <label for="servicoId">Serviço ID: </label>
+        <input type="number" name="servicoId" id="data" value="1" required>
         <label for="data">Data: </label>
         <input type="date" name="data" id="data" value="2024-06-10" required>
         <label for="horario">horário</label>
