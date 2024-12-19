@@ -9,7 +9,7 @@ class ClienteController {
     }
 
     public function show(int $id) {
-        header('Location: ../view/cliente/mostrar_registro.php');
+        header("Location: ../view/cliente/mostrar_registro.php?id=$id");
     }
 
     public function create() {
@@ -19,7 +19,7 @@ class ClienteController {
     public function store() {}
 
     public function edit(int $id) {
-        header('Location: ../view/cliente/editar.php');
+        header("Location: ../view/cliente/editar.php?id=$id");
     }
 
     public function update(int $id) {}

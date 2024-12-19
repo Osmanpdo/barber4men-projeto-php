@@ -9,7 +9,7 @@ class ServicoController {
     }
 
     public function show(int $id) {
-        header('Location: ../view/servico/mostrar_registro.php');
+        header("Location: ../view/servico/mostrar_registro.php?id=$id");
     }
 
     public function create() {
@@ -19,7 +19,7 @@ class ServicoController {
     public function store() {}
 
     public function edit(int $id) {
-        header('Location: ../view/servico/editar.php');
+        header("Location: ../view/servico/editar.php?id=$id");
     }
 
     public function update(int $id) {}

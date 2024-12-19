@@ -9,7 +9,7 @@ class CompraController {
     }
 
     public function show(int $id) {
-        header('Location: ../view/compra/mostrar_registro.php');
+        header("Location: ../view/compra/mostrar_registro.php?id=$id");
     }
 
     public function create() {
@@ -19,7 +19,7 @@ class CompraController {
     public function store() {}
 
     public function edit(int $id) {
-        header('Location: ../view/compra/editar.php');
+        header("Location: ../view/compra/editar.php?id=$id");
     }
 
     public function update(int $id) {}

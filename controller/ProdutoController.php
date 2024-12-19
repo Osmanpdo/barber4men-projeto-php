@@ -9,7 +9,7 @@ class ProdutoController {
     }
 
     public function show(int $id) {
-        header('Location: ../view/produto/mostrar_registro.php');
+        header("Location: ../view/produto/mostrar_registro.php?id=$id");
     }
 
     public function create() {
@@ -19,7 +19,7 @@ class ProdutoController {
     public function store() {}
 
     public function edit(int $id) {
-        header('Location: ../view/produto/editar.php');
+        header("Location: ../view/produto/editar.php?id=$id");
     }
 
     public function update(int $id) {}
