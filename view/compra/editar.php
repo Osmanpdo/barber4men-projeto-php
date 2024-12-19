@@ -3,23 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Compra</title>
+    <title>Editar Compra</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
-    <h1>Nova Compra</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="../home/homepage.php">Editar Compra</a>
+    </nav>
 
-    <form action="" method="post">
-        <label for="clienteId">Cliente ID: </label>
-        <input type="number" name="clienteId" id="data" value="1" required>
-        <label for="produtoId">Produto ID: </label>
-        <input type="number" name="produtoId" id="data" value="1" required>
-        <label for="data">Data: </label>
-        <input type="date" name="data" id="data" value="2024-08-20" required>
-        <label for="horario">Horário</label>
-        <input type="time" name="horario" id="horario" value="10:30" required>
-        <label for="qtd">Quantidade</label>
-        <input type="number" name="qtd" id="qtd" value="3" required>
-        <button type="submit">Salvar</button>
-    </form>
+    <div class="alinhamento">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="clienteId">Cliente ID: </label>
+                <input type="number" class="form-control" name="clienteId" id="data" value="1" required>
+            </div>
+            <div class="form-group">
+                <label for="produtoId">Produto ID: </label>
+                <input type="number" class="form-control" name="produtoId" id="data" value="1" required>
+            </div>
+            <div class="form-group">
+                <label for="data">Data: </label>
+                <input type="date" class="form-control" name="data" id="data" value="2024-08-20" required>
+            </div>
+            <div class="form-group">
+                <label for="horario">Horário</label>
+                <input type="time" class="form-control" name="horario" id="horario" value="10:30" required>
+            </div>
+            <div class="form-group">
+                <label for="qtd">Quantidade</label>
+                <input type="number" class="form-control" name="qtd" id="qtd" value="3" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
 </body>
 </html>
