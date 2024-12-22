@@ -4,20 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Produto</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/global.css">
 </head>
 <body>
-    <h1>Novo Produto</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="../home/homepage.php">Novo Produto</a>
+    </nav>
 
-    <form action="" method="post">
-        <label for="nome">Nome: </label>
-        <input type="text" name="nome" id="nome" required>
-        <label for="valor">Valor</label>
-        <input type="number" step="0.01" name="valor" id="valor" required>
-        <label for="marca">Marca</label>
-        <input type="text" name="marca" id="marca" required>
-        <label for="categoria">Categoria</label>
-        <input type="text" name="categoria" id="categoria" required>
-        <button type="submit">Salvar</button>
-    </form>
+    <div class="alinhamento">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="nome">Nome: </label>
+                <input type="text" class="form-control" name="nome" id="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="valor">Valor</label>
+                <input type="number" class="form-control" step="0.01" name="valor" id="valor" required>
+            </div>
+            <div class="form-group">
+                <label for="marca">Marca</label>
+                <input type="text" class="form-control" name="marca" id="marca" required>
+            </div>
+            <div class="form-group">
+                <label for="categoria">Categoria</label>
+                <input type="text" class="form-control" name="categoria" id="categoria" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
 </body>
 </html>
