@@ -1,19 +1,17 @@
 <?php
 
-include __DIR__ . '/../Agendamento.php';
-include __DIR__ . '/../../core/Database.php';
+include_once __DIR__ . '/../Agendamento.php';
+include_once __DIR__ . '/../../core/Database.php';
 
 class AgendamentoDAO {
 
-    private Agendamento $agendamento;
     private $pdo;
 
     public function __construct() {
-        $this->agendamento = new Agendamento(0, 0, 0, '', '', '', '');
         $this->pdo = Database::conexao();
     }
 
-    public function listarTudo() {
+    public function listarTudo(): array {
         $sql = 'SELECT * FROM agendamentos';
         $stmt = $this->pdo->query($sql);
         $stmt->execute();
@@ -28,12 +26,13 @@ class AgendamentoDAO {
                 $agendamento['data'],
                 $agendamento['horario'],
                 $agendamento['duracao'],
-                $agendamento['status']);
+                $agendamento['status']
+            );
         }
         return $agendamentos;
     }
 
-    public function inserir(Agendamento $agendamento) {
+    public function inserir(Agendamento $agendamento): bool {
         $cliente_id = $agendamento->getCliente_id();
         $servico_id = $agendamento->getServico_id();
         $data = $agendamento->getData();
@@ -58,14 +57,13 @@ class AgendamentoDAO {
         return true;
     }
 
-    public function bucar($id) {
+    public function bucar($id): Agendamento {
         $sql = 'SELECT * FROM agendamentos WHERE id = :id';
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
 
         if (!$stmt->execute()) {
-            echo 'Erro ao encontrar id!';
-            return;
+            return null;
         }
 
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -78,11 +76,12 @@ class AgendamentoDAO {
                 $agendamento['data'],
                 $agendamento['horario'],
                 $agendamento['duracao'],
-                $agendamento['status']);
+                $agendamento['status']
+            );
         }
     }
 
-    public function alterar(Agendamento $agendamento) {
+    public function alterar(Agendamento $agendamento): bool {
         $id = $agendamento->getId();
         $cliente_id = $agendamento->getCliente_id();
         $servico_id = $agendamento->getServico_id();
@@ -111,12 +110,12 @@ class AgendamentoDAO {
         return true;
     }
 
-    public function excluir(Agendamento $agendamento) {
+    public function excluir(Agendamento $agendamento): bool {
         $id = $agendamento->getId();
         $sql = 'DELETE FROM agendamentos WHERE id = :id';
 
         $stmt = $this->pdo->prepare($sql);
-        
+
         $stmt->bindParam(':id', $id);
 
         if (!$stmt->execute()) {
@@ -124,5 +123,4 @@ class AgendamentoDAO {
         }
         return true;
     }
-
 }
