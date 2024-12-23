@@ -45,8 +45,4 @@ class Servico {
 	public function setDescricao(string $value) {
 		$this->descricao = $value;
 	}
-
-	public function __toString() {
-		return $this->nome . " - " . $this->valor . " - " . $this->descricao;
-	}
 }
