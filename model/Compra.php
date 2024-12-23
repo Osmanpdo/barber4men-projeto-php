@@ -9,9 +9,8 @@ class Compra {
     private string $horario;
     private int $qtd;
 
-	public function __construct(int $id, int $cliente_id, int $produto_id, string $data, string $horario, int $qtd) {
+	public function __construct(int $cliente_id, int $produto_id, string $data, string $horario, int $qtd) {
 
-		$this->id = $id;
 		$this->cliente_id = $cliente_id;
 		$this->produto_id = $produto_id;
 		$this->data = $data;

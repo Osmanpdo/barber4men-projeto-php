@@ -10,9 +10,8 @@ class Agendamento {
     private string $duracao;
     private bool $status;
 
-	public function __construct(int $id, int $cliente_id, int $servico_id, string $data, string $horario, string $duracao, bool $status) {
-
-		$this->id = $id;
+	public function __construct(int $cliente_id, int $servico_id, string $data, string $horario, string $duracao, bool $status) {
+		
 		$this->cliente_id = $cliente_id;
 		$this->servico_id = $servico_id;
 		$this->data = $data;

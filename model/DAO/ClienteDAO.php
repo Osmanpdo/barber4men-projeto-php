@@ -26,7 +26,6 @@ class ClienteDAO {
         $clientes = [];
         foreach ($result as $cliente) {
             $clientes[] = new Cliente(
-                $cliente['id'],
                 $cliente['nome'],
                 $cliente['cpf'],
                 $cliente['dt_nasc'],
@@ -35,12 +34,12 @@ class ClienteDAO {
                 $cliente['num'],
                 $cliente['bairro']
             );
+            $clientes[count($clientes) - 1]->setId($cliente['id']);
         }
         return $clientes;
     }
 
     public function inserir(Cliente $cliente): bool {
-        $id = $cliente->getId();
         $nome = $cliente->getNome();
         $cpf = $cliente->getCpf();
         $dt_nasc = $cliente->getDt_nasc();
@@ -62,10 +61,8 @@ class ClienteDAO {
         $stmt->bindParam(':num', $num);
         $stmt->bindParam(':bairro', $bairro);
 
-        if (!$stmt->execute()) {
-            return false;
-        }
-        return true;
+
+        return $stmt->execute();
     }
 
     public function bucar($id): Cliente {
@@ -80,18 +77,19 @@ class ClienteDAO {
 
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach ($result as $cliente) {
-            return new Cliente(
-                $cliente['id'],
-                $cliente['nome'],
-                $cliente['cpf'],
-                $cliente['dt_nasc'],
-                $cliente['whatsapp'],
-                $cliente['logradouro'],
-                $cliente['num'],
-                $cliente['bairro']
-            );
-        }
+        
+        $cliente = new Cliente(
+            $result['nome'],
+            $result['cpf'],
+            $result['dt_nasc'],
+            $result['whatsapp'],
+            $result['logradouro'],
+            $result['num'],
+            $result['bairro']
+        );
+        $cliente->setId($result['id']);
+        
+        return $cliente;
     }
 
     public function alterar(Cliente $cliente): bool {
@@ -119,10 +117,7 @@ class ClienteDAO {
         $stmt->bindParam(':num', $num);
         $stmt->bindParam(':bairro', $bairro);
 
-        if(!$stmt->execute()) {
-            return false;
-        }
-        return true;
+        return $stmt->execute();
     }
 
     public function excluir(Cliente $cliente): bool {
@@ -162,9 +157,6 @@ class ClienteDAO {
 
         $stmt->bindParam(':id', $id);
 
-        if (!$stmt->execute()) {
-            return false;
-        }
-        return true;
+        return $stmt->execute();
     }
 }

@@ -8,9 +8,8 @@ class Produto {
     private string $marca;
     private string $categoria;
 
-	public function __construct(int $id, string $nome, float $valor, string $marca, string $categoria) {
+	public function __construct(string $nome, float $valor, string $marca, string $categoria) {
 
-		$this->id = $id;
 		$this->nome = $nome;
 		$this->valor = $valor;
 		$this->marca = $marca;
@@ -55,5 +54,9 @@ class Produto {
 
 	public function setCategoria(string $value) {
 		$this->categoria = $value;
+	}
+
+	public function __toString() : string {
+		return "Id: " . $this->id . "<br>Nome: " . $this->nome . "<br>Valor: " . $this->valor . "<br>Marca: " . $this->marca . "<br>Categoria: " . $this->categoria;
 	}
 }
