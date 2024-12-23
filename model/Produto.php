@@ -55,5 +55,4 @@ class Produto {
 	public function setCategoria(string $value) {
 		$this->categoria = $value;
 	}
-	
 }
