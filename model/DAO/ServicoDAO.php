@@ -1,7 +1,7 @@
 <?php
 
-include __DIR__ . '/../Servico.php';
-include __DIR__ . '/../../core/Database.php';
+include_once __DIR__ . '/../Servico.php';
+include_once __DIR__ . '/../../core/Database.php';
 
 class ProdutoDAO {
 
