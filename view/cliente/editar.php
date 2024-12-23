@@ -1,3 +1,12 @@
+<?php
+
+include_once __DIR__ . '/../../model/Cliente.php';
+
+session_start();
+
+$cliente = $_SESSION['cliente'];
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,38 +18,38 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="../home/homepage.php">Editar Cliente</a>
+        <a class="navbar-brand" href="../../index.php">Editar Cliente</a>
     </nav>
 
     <div class="alinhamento">
-        <form action="" method="post">
+        <form action="../../index.php?classe=Cliente&metodo=update&id=<?php echo $cliente->getId(); ?>" method="post">
             <div class="form-group">
                 <label for="nome">Nome: </label>
-                <input type="text" class="form-control" name="nome" id="nome" value="João Silva" required>
+                <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $cliente->getNome(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="cpf">CPF</label>
-                <input type="text" class="form-control" name="cpf" id="cpf" value="123.456.789-00" required>
+                <input type="text" class="form-control" name="cpf" id="cpf" value="<?php echo $cliente->getCpf(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="dt_nasc">Data de Nascimento</label>
-                <input type="date" class="form-control" name="dt_nasc" id="dt_nasc" value="1990-05-21" required>
+                <input type="date" class="form-control" name="dt_nasc" id="dt_nasc" value="<?php echo $cliente->getDt_nasc(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="whatsapp">Whatsapp</label>
-                <input type="text" class="form-control" name="whatsapp" id="whatsapp" value="(11) 91234-5678" required>
+                <input type="text" class="form-control" name="whatsapp" id="whatsapp" value="<?php echo $cliente->getWhatsapp(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="logradouro">Logradouro</label>
-                <input type="text" class="form-control" name="logradouro" id="logradouro" value="Rua das Flores" required>
+                <input type="text" class="form-control" name="logradouro" id="logradouro" value="<?php echo $cliente->getLogradouro(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="num">Número</label>
-                <input type="number" class="form-control" name="num" id="num" value="123" required>
+                <input type="number" class="form-control" name="num" id="num" value="<?php echo $cliente->getNum(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="bairro">Bairro</label>
-                <input type="text" class="form-control" name="bairro" id="bairro" value="Centro" required>
+                <input type="text" class="form-control" name="bairro" id="bairro" value="<?php echo $cliente->getBairro(); ?>" required>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>

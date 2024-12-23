@@ -140,6 +140,27 @@ class ClienteDAO {
 
             $stmt->execute();
         }
+
+        // Depois exclui todas as compras associadas ao cliente
+        $sql = 'SELECT * FROM compras WHERE cliente_id = :id';
+
+        $stmt = $this->pdo->prepare($sql);
+
+        $stmt->bindParam(':id', $id);
+
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($result as $compra) {
+            $sql = 'DELETE FROM compras WHERE id = :id';
+
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->bindParam(':id', $compra['id']);
+
+            $stmt->execute();
+        }
         
         // Depois exclui o cliente
         $sql = 'DELETE FROM clientes WHERE id = :id';

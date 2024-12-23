@@ -1,13 +1,56 @@
+<?php
+
+include_once __DIR__ . '/../../model/Cliente.php';
+
+session_start();
+
+$clientes = $_SESSION['clientes'];
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabela de Dados</title>
-    <link rel="stylesheet" href="../css/global.css"></head>
+    <title>Tabela Clientes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/global.css">
 <body>
-    <h2>Tabela de Dados Aleatórios</h2>
-    <table>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="../../index.php">BARBER4MAN</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="../../index.php">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../../index.php?classe=Cliente&metodo=index">CLIENTES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../../index.php?classe=Produto&metodo=index">PRODUTOS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../../index.php?classe=Servico&metodo=index">SERVIÇOS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../../index.php?classe=Agendamento&metodo=index">AGENDAMENTOS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../../index.php?classe=Compra&metodo=index">COMPRAS</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <a class="btn btn-primary alinha" href="../../index.php?classe=Cliente&metodo=create" role="button">Novo</a>
+    <div class="conteiner"> 
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>ID</th>
@@ -18,60 +61,34 @@
                 <th>Logradouro</th>
                 <th>Número</th>
                 <th>Bairro</th>
+                <th>Opções</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>João Silva</td>
-                <td>123.456.789-00</td>
-                <td>1990-05-21</td>
-                <td>(11) 91234-5678</td>
-                <td>Rua das Flores</td>
-                <td>123</td>
-                <td>Centro</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Maria Souza</td>
-                <td>987.654.321-11</td>
-                <td>1988-11-30</td>
-                <td>(21) 98765-4321</td>
-                <td>Av. Brasil</td>
-                <td>456</td>
-                <td>Jardins</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Carlos Pereira</td>
-                <td>456.123.789-22</td>
-                <td>1995-02-15</td>
-                <td>(31) 95678-1234</td>
-                <td>Rua Principal</td>
-                <td>789</td>
-                <td>Vila Nova</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Ana Oliveira</td>
-                <td>321.789.654-33</td>
-                <td>1992-08-10</td>
-                <td>(41) 91234-9876</td>
-                <td>Travessa do Sol</td>
-                <td>321</td>
-                <td>Liberdade</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Pedro Lima</td>
-                <td>159.753.852-44</td>
-                <td>1998-01-25</td>
-                <td>(51) 92345-6789</td>
-                <td>Av. das Palmeiras</td>
-                <td>654</td>
-                <td>Boa Vista</td>
-            </tr>
+        <?php
+        foreach ($clientes as $cliente) {
+            echo '<tr>';
+            echo '<td>' . $cliente->getId() . '</td>';
+            echo '<td>' . $cliente->getNome() . '</td>';
+            echo '<td>' . $cliente->getCpf() . '</td>';
+            echo '<td>' . $cliente->getDt_nasc() . '</td>';
+            echo '<td>' . $cliente->getWhatsapp() . '</td>';
+            echo '<td>' . $cliente->getLogradouro() . '</td>';
+            echo '<td>' . $cliente->getNum() . '</td>';
+            echo '<td>' . $cliente->getBairro() . '</td>';
+            echo '<td>';
+            echo '<div class="alinhamento-link">';
+            echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=edit&id=' . $cliente->getId() . '">Editar</a>';
+            echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=delete&id=' . $cliente->getId() . '">Deletar</a>';
+            echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=show&id=' . $cliente->getId() . '">Mostrar</a>';
+            echo '</div>';
+            echo '</td>';
+            echo '</tr>';
+            
+        }
+        ?>
         </tbody>
     </table>
+    </div>
 </body>
 </html>
