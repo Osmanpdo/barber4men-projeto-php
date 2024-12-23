@@ -2,15 +2,12 @@
 
 include_once __DIR__ . '/../Cliente.php';
 include_once __DIR__ . '/../../core/Database.php';
-include_once __DIR__ . '/AgendamentoDAO.php';
 
 class ClienteDAO {
 
-    private AgendamentoDAO $agendamentoDAO;
     private $pdo;
 
     public function __construct() {
-        $this->agendamentoDAO = new AgendamentoDAO();
         $this->pdo = Database::conexao();
     }
 
@@ -75,7 +72,7 @@ class ClienteDAO {
 
         $stmt->execute();
 
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         
         $cliente = new Cliente(
@@ -134,20 +131,14 @@ class ClienteDAO {
 
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $agendamentos = [];
         foreach ($result as $agendamento) {
-            $agendamentos[] = new Agendamento(
-                $agendamento['id'],
-                $agendamento['cliente_id'],
-                $agendamento['servico_id'],
-                $agendamento['data'],
-                $agendamento['horario'],
-                $agendamento['duracao'],
-                $agendamento['status']
-            );
-        }
-        foreach ($agendamentos as $agendamento) {
-            $this->agendamentoDAO->excluir($agendamento);
+            $sql = 'DELETE FROM agendamentos WHERE id = :id';
+
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->bindParam(':id', $agendamento['id']);
+
+            $stmt->execute();
         }
         
         // Depois exclui o cliente
