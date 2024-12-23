@@ -122,10 +122,3 @@ class ServicoDAO {
     }
 
 }
-
-$servicoDAO = new ServicoDAO();
-
-$servico = new Servico('Corte de cabelo', 50.00, 'Corte de cabelo feminino');
-$servico->setId(1);
-
-echo $servicoDAO->excluir($servico);
