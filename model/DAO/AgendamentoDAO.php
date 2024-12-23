@@ -20,7 +20,6 @@ class AgendamentoDAO {
         $agendamentos = [];
         foreach ($result as $agendamento) {
             $agendamentos[] = new Agendamento(
-                $agendamento['id'],
                 $agendamento['cliente_id'],
                 $agendamento['servico_id'],
                 $agendamento['data'],
@@ -28,6 +27,7 @@ class AgendamentoDAO {
                 $agendamento['duracao'],
                 $agendamento['status']
             );
+            $agendamentos[count($agendamentos) - 1]->setId($agendamento['id']);
         }
         return $agendamentos;
     }
@@ -51,34 +51,31 @@ class AgendamentoDAO {
         $stmt->bindParam(':duracao', $duracao);
         $stmt->bindParam(':status', $status);
 
-        if (!$stmt->execute()) {
-            return false;
-        }
-        return true;
+        return $stmt->execute();
     }
 
     public function bucar($id): Agendamento {
         $sql = 'SELECT * FROM agendamentos WHERE id = :id';
+
         $stmt = $this->pdo->prepare($sql);
+
         $stmt->bindParam(':id', $id);
 
-        if (!$stmt->execute()) {
-            return null;
-        }
+        $stmt->execute();
 
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        foreach ($result as $agendamento) {
-            return new Agendamento(
-                $agendamento['id'],
-                $agendamento['cliente_id'],
-                $agendamento['servico_id'],
-                $agendamento['data'],
-                $agendamento['horario'],
-                $agendamento['duracao'],
-                $agendamento['status']
-            );
-        }
+      
+        $agendamento = new Agendamento(
+            $result['cliente_id'],
+            $result['servico_id'],
+            $result['data'],
+            $result['horario'],
+            $result['duracao'],
+            $result['status']
+        );
+        $agendamento->setId($result['id']);
+        
+        return $agendamento;
     }
 
     public function alterar(Agendamento $agendamento): bool {
@@ -104,10 +101,7 @@ class AgendamentoDAO {
         $stmt->bindParam(':status', $status);
         $stmt->bindParam(':id', $id);
 
-        if (!$stmt->execute()) {
-            return false;
-        }
-        return true;
+        return $stmt->execute();
     }
 
     public function excluir(Agendamento $agendamento): bool {
@@ -118,9 +112,6 @@ class AgendamentoDAO {
 
         $stmt->bindParam(':id', $id);
 
-        if (!$stmt->execute()) {
-            echo false;
-        }
-        return true;
+        return $stmt->execute();
     }
 }

@@ -11,9 +11,8 @@ class Cliente {
     private int $num;
     private string $bairro;
 
-	public function __construct(int $id, string $nome, string $cpf, string $dt_nasc, string $whatsapp, string $logradouro, int $num, string $bairro) {
+	public function __construct(string $nome, string $cpf, string $dt_nasc, string $whatsapp, string $logradouro, int $num, string $bairro) {
 
-		$this->id = $id;
 		$this->nome = $nome;
 		$this->cpf = $cpf;
 		$this->dt_nasc = $dt_nasc;

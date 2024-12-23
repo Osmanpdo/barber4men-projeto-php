@@ -7,9 +7,8 @@ class Servico {
     private float $valor;
     private string $descricao;
 
-	public function __construct(int $id, string $nome, float $valor, string $descricao) {
+	public function __construct(string $nome, float $valor, string $descricao) {
 
-		$this->id = $id;
 		$this->nome = $nome;
 		$this->valor = $valor;
 		$this->descricao = $descricao;
