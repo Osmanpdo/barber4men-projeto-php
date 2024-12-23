@@ -55,8 +55,5 @@ class Produto {
 	public function setCategoria(string $value) {
 		$this->categoria = $value;
 	}
-
-	public function __toString() : string {
-		return "Id: " . $this->id . "<br>Nome: " . $this->nome . "<br>Valor: " . $this->valor . "<br>Marca: " . $this->marca . "<br>Categoria: " . $this->categoria;
-	}
+	
 }

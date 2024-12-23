@@ -63,7 +63,7 @@ class AgendamentoDAO {
 
         $stmt->execute();
 
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
       
         $agendamento = new Agendamento(
             $result['cliente_id'],
