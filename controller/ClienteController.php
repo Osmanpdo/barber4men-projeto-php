@@ -66,7 +66,7 @@ class ClienteController {
 
         $this->clienteDAO->alterar($this->cliente);
 
-        header("Location: ../index.php?classe=Cliente&metodo=edit&id=$id");        
+        header('Location: ../index.php?classe=Cliente&metodo=index');
     }
 
     public function delete(int $id) {

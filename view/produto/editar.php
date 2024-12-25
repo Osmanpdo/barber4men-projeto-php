@@ -1,3 +1,12 @@
+<?php
+
+include_once __DIR__ . '/../../model/Produto.php';
+
+session_start();
+
+$produto = $_SESSION['produto'];
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,22 +22,22 @@
     </nav>
 
     <div class="alinhamento">
-        <form action="" method="post">
+        <form action="../../index.php?classe=Produto&metodo=update&id=<?php echo $produto->getId(); ?>" method="post">
             <div class="form-group">
                 <label for="nome">Nome: </label>
-                <input type="text" class="form-control" name="nome" id="nome" value="Smartphone" required>
+                <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $produto->getNome(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="valor">Valor</label>
-                <input type="number" class="form-control" step="0.01" name="valor" id="valor" value="3499.99" required>
+                <input type="number" class="form-control" step="0.01" name="valor" id="valor" value="<?php echo $produto->getValor(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="marca">Marca</label>
-                <input type="text" class="form-control" name="marca" id="marca" value="TechBrand" required>
+                <input type="text" class="form-control" name="marca" id="marca" value="<?php echo $produto->getMarca(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="categoria">Categoria</label>
-                <input type="text" class="form-control" name="categoria" id="categoria" value="Eletrônicos" required>
+                <input type="text" class="form-control" name="categoria" id="categoria" value="<?php echo $produto->getCategoria(); ?>" required>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
