@@ -13,7 +13,7 @@
     </nav>
 
     <div class="alinhamento">
-        <form action="" method="post">
+        <form action="../../index.php?classe=Produto&metodo=store" method="post">
             <div class="form-group">
                 <label for="nome">Nome: </label>
                 <input type="text" class="form-control" name="nome" id="nome" required>

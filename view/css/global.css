@@ -36,3 +36,7 @@ table{
 .conteiner {
     width: 90vw;
 }
+
+.conteiner-produto, .conteiner-servico {
+    width: 50vw;
+}
