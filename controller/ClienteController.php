@@ -1,7 +1,7 @@
 <?php
 
-include_once __DIR__ . '/../model/DAO/ClienteDAO.php';
 include_once __DIR__ . '/../model/Cliente.php';
+include_once __DIR__ . '/../model/DAO/ClienteDAO.php';
 
 session_start();
 

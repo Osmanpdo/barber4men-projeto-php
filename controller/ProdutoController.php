@@ -23,7 +23,6 @@ class ProdutoController {
     public function show(int $id) {
         $produto = $this->produtoDAO->bucar($id);
         $_SESSION['produto'] = $produto;
-
         header("Location: ../view/produto/mostrar_registro.php?id=$id");
     }
 
