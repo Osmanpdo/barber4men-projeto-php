@@ -81,7 +81,8 @@ $produto_id = $_SESSION['produto_id'];
                         echo '<td>' . $produto->getNome() . ' - ' . 'R$' . $produto->getValor() . '</td>';
                     }
                 }
-                echo '<td>' . $compra->getData() . '</td>';
+                $date = new DateTimeImmutable($compra->getData());
+                echo '<td>' . $date->format('d-m-Y') . '</td>';
                 echo '<td>' . $compra->getHorario() . '</td>';
                 echo '<td>' . $compra->getQtd() . '</td>';
                 echo '<td>';

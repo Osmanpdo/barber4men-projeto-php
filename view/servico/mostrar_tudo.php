@@ -58,7 +58,7 @@ $servicos = $_SESSION['servicos'];
                     <th>Nome</th>
                     <th>Valor</th>
                     <th>Descrição</th>
-                    <th>Opçães</th>
+                    <th>Opções</th>
                 </tr>
             </thead>
             <tbody>

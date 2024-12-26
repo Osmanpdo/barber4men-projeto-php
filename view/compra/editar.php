@@ -29,7 +29,7 @@ $compra = $_SESSION['compra'];
         <form action="../../index.php?classe=Compra&metodo=update&id=<?php echo $compra->getId() ?>" method="post">
             <div class="form-group">
                 <label for="cliente_id">Clientes</label>
-                <select class="form-control" name="cliente_id" id="cliente_id">
+                <select class="form-control" name="cliente_id" id="cliente_id" required>
                     <option value="" selected disabled>Selecione</option>
                     <?php
                     foreach ($cliente_id as $cliente) {
@@ -42,7 +42,7 @@ $compra = $_SESSION['compra'];
             </div>
             <div class="form-group">
                 <label for="produto_id">Produtos</label>
-                <select class="form-control" name="produto_id" id="produto_id">
+                <select class="form-control" name="produto_id" id="produto_id" required>
                     <option value="" selected disabled>Selecione</option>
                     <?php
                     foreach ($produto_id as $produto) {

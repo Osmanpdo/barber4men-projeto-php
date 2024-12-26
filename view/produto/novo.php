@@ -16,7 +16,7 @@
         <form action="../../index.php?classe=Produto&metodo=store" method="post">
             <div class="form-group">
                 <label for="nome">Nome: </label>
-                <input type="text" class="form-control" name="nome" id="nome" required>
+                <input type="text" class="form-control" name="nome" id="nome" maxlength="100" required>
             </div>
             <div class="form-group">
                 <label for="valor">Valor</label>
@@ -24,11 +24,11 @@
             </div>
             <div class="form-group">
                 <label for="marca">Marca</label>
-                <input type="text" class="form-control" name="marca" id="marca" required>
+                <input type="text" class="form-control" name="marca" id="marca" maxlength="100" required>
             </div>
             <div class="form-group">
                 <label for="categoria">Categoria</label>
-                <input type="text" class="form-control" name="categoria" id="categoria" required>
+                <input type="text" class="form-control" name="categoria" id="categoria" maxlength="100" required>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>

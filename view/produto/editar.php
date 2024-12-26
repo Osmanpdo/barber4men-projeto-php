@@ -25,7 +25,7 @@ $produto = $_SESSION['produto'];
         <form action="../../index.php?classe=Produto&metodo=update&id=<?php echo $produto->getId(); ?>" method="post">
             <div class="form-group">
                 <label for="nome">Nome: </label>
-                <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $produto->getNome(); ?>" required>
+                <input type="text" class="form-control" name="nome" id="nome" maxlength="100" value="<?php echo $produto->getNome(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="valor">Valor</label>
@@ -33,11 +33,11 @@ $produto = $_SESSION['produto'];
             </div>
             <div class="form-group">
                 <label for="marca">Marca</label>
-                <input type="text" class="form-control" name="marca" id="marca" value="<?php echo $produto->getMarca(); ?>" required>
+                <input type="text" class="form-control" name="marca" id="marca" maxlength="100" value="<?php echo $produto->getMarca(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="categoria">Categoria</label>
-                <input type="text" class="form-control" name="categoria" id="categoria" value="<?php echo $produto->getCategoria(); ?>" required>
+                <input type="text" class="form-control" name="categoria" id="categoria" maxlength="100" value="<?php echo $produto->getCategoria(); ?>" required>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>

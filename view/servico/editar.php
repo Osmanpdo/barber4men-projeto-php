@@ -25,7 +25,7 @@ $servico = $_SESSION['servico'];
         <form action="../../index.php?classe=Servico&metodo=update&id=<?php echo $servico->getId(); ?>" method="post">
             <div class="form-group">
                 <label for="nome">Nome: </label>
-                <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $servico->getNome(); ?>" required>
+                <input type="text" class="form-control" name="nome" id="nome" maxlength="100" value="<?php echo $servico->getNome(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="valor">Valor</label>
@@ -33,7 +33,7 @@ $servico = $_SESSION['servico'];
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição: </label>
-                <textarea class="form-control" name="descricao" id="descricao"  required><?php echo $servico->getDescricao(); ?></textarea>
+                <textarea class="form-control" name="descricao" id="descricao" required><?php echo $servico->getDescricao(); ?></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>

@@ -59,7 +59,7 @@ $produtos = $_SESSION['produtos'];
                     <th>Valor (R$)</th>
                     <th>Marca</th>
                     <th>Categoria</th>
-                    <th>Opçães</th>
+                    <th>Opções</th>
                 </tr>
             </thead>
             <tbody>

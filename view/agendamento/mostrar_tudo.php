@@ -82,7 +82,8 @@ $servico_id = $_SESSION['servico_id'];
                         echo '<td>' . $servico->getNome() . ' - ' . 'R$' . $servico->getValor() . '</td>';
                     }
                 }
-                echo '<td>' . $agendamento->getData() . '</td>';
+                $date = new DateTimeImmutable($agendamento->getData());
+                echo '<td>' . $date->format('d-m-Y') . '</td>';
                 echo '<td>' . $agendamento->getHorario() . '</td>';
                 echo '<td>' . $agendamento->getDuracao() . '</td>';
                 echo '<td>';
