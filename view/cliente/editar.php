@@ -25,11 +25,11 @@ $cliente = $_SESSION['cliente'];
         <form action="../../index.php?classe=Cliente&metodo=update&id=<?php echo $cliente->getId(); ?>" method="post">
             <div class="form-group">
                 <label for="nome">Nome: </label>
-                <input type="text" class="form-control" name="nome" id="nome" value="<?php echo $cliente->getNome(); ?>" required>
+                <input type="text" class="form-control" name="nome" id="nome" maxlength="100" value="<?php echo $cliente->getNome(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="cpf">CPF</label>
-                <input type="text" class="form-control" name="cpf" id="cpf" value="<?php echo $cliente->getCpf(); ?>" required>
+                <input type="text" class="form-control" name="cpf" id="cpf" maxlength="11" value="<?php echo $cliente->getCpf(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="dt_nasc">Data de Nascimento</label>
@@ -37,11 +37,11 @@ $cliente = $_SESSION['cliente'];
             </div>
             <div class="form-group">
                 <label for="whatsapp">Whatsapp</label>
-                <input type="text" class="form-control" name="whatsapp" id="whatsapp" value="<?php echo $cliente->getWhatsapp(); ?>" required>
+                <input type="text" class="form-control" name="whatsapp" id="whatsapp" maxlength="11" value="<?php echo $cliente->getWhatsapp(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="logradouro">Logradouro</label>
-                <input type="text" class="form-control" name="logradouro" id="logradouro" value="<?php echo $cliente->getLogradouro(); ?>" required>
+                <input type="text" class="form-control" name="logradouro" id="logradouro" maxlength="100" value="<?php echo $cliente->getLogradouro(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="num">Número</label>
@@ -49,7 +49,7 @@ $cliente = $_SESSION['cliente'];
             </div>
             <div class="form-group">
                 <label for="bairro">Bairro</label>
-                <input type="text" class="form-control" name="bairro" id="bairro" value="<?php echo $cliente->getBairro(); ?>" required>
+                <input type="text" class="form-control" name="bairro" id="bairro" maxlength="100" value="<?php echo $cliente->getBairro(); ?>" required>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>

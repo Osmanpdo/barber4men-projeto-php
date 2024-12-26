@@ -26,7 +26,7 @@ $servico_id = $_SESSION['servico_id'];
         <form action="../../index.php?classe=Agendamento&metodo=store" method="post">
             <div class="form-group">
                 <label for="cliente_id">Clientes</label>
-                <select class="form-control" name="cliente_id" id="cliente_id">
+                <select class="form-control" name="cliente_id" id="cliente_id" required>
                     <option value="" selected disabled>Selecione</option>
                     <?php
                     foreach ($cliente_id as $cliente) {
@@ -38,7 +38,7 @@ $servico_id = $_SESSION['servico_id'];
             </div>
             <div class="form-group">
                 <label for="servico_id">Serviços</label>
-                <select class="form-control" name="servico_id" id="servico_id">
+                <select class="form-control" name="servico_id" id="servico_id" required>
                     <option value="" selected disabled>Selecione</option>
                     <?php
                     foreach ($servico_id as $servico) {

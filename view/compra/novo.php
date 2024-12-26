@@ -27,7 +27,7 @@ $produto_id = $_SESSION['produto_id'];
         <form action="../../index.php?classe=Compra&metodo=store" method="post">
             <div class="form-group">
                 <label for="cliente_id">Clientes</label>
-                <select class="form-control" name="cliente_id" id="cliente_id">
+                <select class="form-control" name="cliente_id" id="cliente_id" required>
                     <option value="" selected disabled>Selecione</option>
                     <?php
                     foreach ($cliente_id as $cliente) {
@@ -39,7 +39,7 @@ $produto_id = $_SESSION['produto_id'];
             </div>
             <div class="form-group">
                 <label for="produto_id">Produtos</label>
-                <select class="form-control" name="produto_id" id="produto_id">
+                <select class="form-control" name="produto_id" id="produto_id" required>
                     <option value="" selected disabled>Selecione</option>
                     <?php
                     foreach ($produto_id as $produto) {

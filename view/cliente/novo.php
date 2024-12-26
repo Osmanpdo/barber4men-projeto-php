@@ -16,11 +16,11 @@
         <form action="../../index.php?classe=Cliente&metodo=store" method="post">
             <div class="form-group">
                 <label for="nome">Nome: </label>
-                <input type="text" class="form-control" name="nome" id="nome" required>
+                <input type="text" class="form-control" name="nome" id="nome" maxlength="100" required>
             </div>
             <div class="form-group">
                 <label for="cpf">CPF</label>
-                <input type="text" class="form-control" name="cpf" id="cpf" required>
+                <input type="text" class="form-control" name="cpf" id="cpf" maxlength="11" required>
             </div>
             <div class="form-group">
                 <label for="dt_nasc">Data de Nascimento</label>
@@ -28,11 +28,11 @@
             </div>
             <div class="form-group">
                 <label for="whatsapp">Whatsapp</label>
-                <input type="text" class="form-control" name="whatsapp" id="whatsapp" required>
+                <input type="text" class="form-control" name="whatsapp" id="whatsapp" maxlength="11" required>
             </div>
             <div class="form-group">
                 <label for="logradouro">Logradouro</label>
-                <input type="text" class="form-control" name="logradouro" id="logradouro" required>
+                <input type="text" class="form-control" name="logradouro" id="logradouro" maxlength="100" required>
             </div>
             <div class="form-group">
                 <label for="num">Número</label>
@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
                 <label for="bairro">Bairro</label>
-                <input type="text" class="form-control" name="bairro" id="bairro" required>
+                <input type="text" class="form-control" name="bairro" id="bairro" maxlength="100" required>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>

@@ -16,7 +16,7 @@
         <form action="../../index.php?classe=Servico&metodo=store" method="post">
             <div class="form-group">
                 <label for="nome">Nome: </label>
-                <input type="text" class="form-control" name="nome" id="nome" required>
+                <input type="text" class="form-control" name="nome" id="nome" maxlength="100" required>
             </div>
             <div class="form-group">
                 <label for="valor">Valor</label>
