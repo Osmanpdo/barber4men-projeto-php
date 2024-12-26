@@ -32,11 +32,21 @@ class AgendamentoController {
 
     public function show(int $id) {
         $agendamento = $this->agendamentoDAO->bucar($id);
+        $cliente_id = $this->clienteDAO->listarTudo();
+        $servico_id = $this->servicoDAO->listarTudo();
+        
         $_SESSION['agendamento'] = $agendamento;
+        $_SESSION['cliente_id'] = $cliente_id;
+        $_SESSION['servico_id'] = $servico_id;
         header("Location: ../view/agendamento/mostrar_registro.php?id=$id");
     }
 
     public function create() {
+        $cliente_id = $this->clienteDAO->listarTudo();
+        $servico_id = $this->servicoDAO->listarTudo();
+        
+        $_SESSION['cliente_id'] = $cliente_id;
+        $_SESSION['servico_id'] = $servico_id;
         header('Location: ../view/agendamento/novo.php');
     }
 
@@ -57,7 +67,12 @@ class AgendamentoController {
 
     public function edit(int $id) {
         $agendamento = $this->agendamentoDAO->bucar($id);
-        $_SESSION['agendamento'] = $agendamento;  
+        $cliente_id = $this->clienteDAO->listarTudo();
+        $servico_id = $this->servicoDAO->listarTudo();
+        
+        $_SESSION['agendamento'] = $agendamento;
+        $_SESSION['cliente_id'] = $cliente_id;
+        $_SESSION['servico_id'] = $servico_id;
         header("Location: ../view/agendamento/editar.php?id=$id");
     }
 

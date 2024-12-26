@@ -54,57 +54,57 @@ $servico_id = $_SESSION['servico_id'];
     </nav>
     <a class="btn btn-primary alinha" href="../../index.php?classe=Agendamento&metodo=create" role="button">Novo</a>
     <div class="conteiner-agendamento"> 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Cliente</th>
-                <th>Serviço</th>
-                <th>Data</th>
-                <th>Horário</th>
-                <th>Duração</th>
-                <th>Status</th>
-                <th>Opções</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        foreach ($agendamentos as $agendamento) {
-            echo '<tr>';
-            echo '<td>' . $agendamento->getId() . '</td>';
-            foreach ($cliente_id as $cliente) {
-                if ($cliente->getId() == $agendamento->getCliente_id()) {
-                    echo '<td>' . $cliente->getNome() . ' - '. $cliente->getNum() . '</td>';
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Serviço</th>
+                    <th>Data</th>
+                    <th>Horário</th>
+                    <th>Duração</th>
+                    <th>Status</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach ($agendamentos as $agendamento) {
+                echo '<tr>';
+                echo '<td>' . $agendamento->getId() . '</td>';
+                foreach ($cliente_id as $cliente) {
+                    if ($cliente->getId() == $agendamento->getCliente_id()) {
+                        echo '<td>' . $cliente->getNome() . ' - '. $cliente->getNum() . '</td>';
+                    }
                 }
-            }
-            foreach ($servico_id as $servico) {
-                if ($servico->getId() == $agendamento->getServico_id()) {
-                    echo '<td>' . $servico->getNome() . ' - ' . 'R$' . $servico->getValor() . '</td>';
+                foreach ($servico_id as $servico) {
+                    if ($servico->getId() == $agendamento->getServico_id()) {
+                        echo '<td>' . $servico->getNome() . ' - ' . 'R$' . $servico->getValor() . '</td>';
+                    }
                 }
+                echo '<td>' . $agendamento->getData() . '</td>';
+                echo '<td>' . $agendamento->getHorario() . '</td>';
+                echo '<td>' . $agendamento->getDuracao() . '</td>';
+                echo '<td>';
+                if ($agendamento->getStatus()) {
+                    echo 'Concluído';
+                } else {
+                    echo 'Pendente';
+                }
+                echo'</td>';
+                echo '<td>';
+                echo '<div class="alinhamento-link">';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Agendamento&metodo=edit&id=' . $agendamento->getId() . '">Editar</a>';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Agendamento&metodo=delete&id=' . $agendamento->getId() . '">Deletar</a>';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Agendamento&metodo=show&id=' . $agendamento->getId() . '">Mostrar</a>';
+                echo '</div>';
+                echo '</td>';
+                echo '</tr>';
+                
             }
-            echo '<td>' . $agendamento->getData() . '</td>';
-            echo '<td>' . $agendamento->getHorario() . '</td>';
-            echo '<td>' . $agendamento->getDuracao() . '</td>';
-            echo '<td>';
-            if ($agendamento->getStatus()) {
-                echo 'Concluído';
-            } else {
-                echo 'Pendente';
-            }
-            echo'</td>';
-            echo '<td>';
-            echo '<div class="alinhamento-link">';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Agendamento&metodo=edit&id=' . $agendamento->getId() . '">Editar</a>';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Agendamento&metodo=delete&id=' . $agendamento->getId() . '">Deletar</a>';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Agendamento&metodo=show&id=' . $agendamento->getId() . '">Mostrar</a>';
-            echo '</div>';
-            echo '</td>';
-            echo '</tr>';
-            
-        }
-        ?>
-        </tbody>
-    </table>
+            ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

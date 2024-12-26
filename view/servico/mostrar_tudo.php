@@ -51,36 +51,36 @@ $servicos = $_SESSION['servicos'];
     </nav>
     <a class="btn btn-primary alinha" href="../../index.php?classe=Servico&metodo=create" role="button">Novo</a>
     <div class="conteiner-servico"> 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Valor</th>
-                <th>Descrição</th>
-                <th>Opçães</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        foreach ($servicos as $servico) {
-            echo '<tr>';
-            echo '<td>' . $servico->getId() . '</td>';
-            echo '<td>' . $servico->getNome() . '</td>';
-            echo '<td>' . 'R$ ' . sprintf("%01.2f", $servico->getValor()) . '</td>';
-            echo '<td>' . $servico->getDescricao() . '</td>';
-            echo '<td>';
-            echo '<div class="alinhamento-link">';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Servico&metodo=edit&id=' . $servico->getId() . '">Editar</a>';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Servico&metodo=delete&id=' . $servico->getId() . '">Deletar</a>';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Servico&metodo=show&id=' . $servico->getId() . '">Mostrar</a>';
-            echo '</div>';
-            echo '</td>';
-            echo '</tr>';  
-        }
-        ?>
-        </tbody>
-    </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Descrição</th>
+                    <th>Opçães</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach ($servicos as $servico) {
+                echo '<tr>';
+                echo '<td>' . $servico->getId() . '</td>';
+                echo '<td>' . $servico->getNome() . '</td>';
+                echo '<td>' . 'R$ ' . sprintf("%01.2f", $servico->getValor()) . '</td>';
+                echo '<td>' . $servico->getDescricao() . '</td>';
+                echo '<td>';
+                echo '<div class="alinhamento-link">';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Servico&metodo=edit&id=' . $servico->getId() . '">Editar</a>';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Servico&metodo=delete&id=' . $servico->getId() . '">Deletar</a>';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Servico&metodo=show&id=' . $servico->getId() . '">Mostrar</a>';
+                echo '</div>';
+                echo '</td>';
+                echo '</tr>';  
+            }
+            ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

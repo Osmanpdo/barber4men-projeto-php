@@ -41,6 +41,6 @@ table{
     width: 50vw;
 }
 
-.conteiner-agendamento {
+.conteiner-agendamento, .conteiner-compra {
     width: 70vw;
 }

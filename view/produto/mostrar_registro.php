@@ -51,36 +51,36 @@ $produto = $_SESSION['produto'];
     </nav>
     <h2 class="alinha">Dados De Registro</h2>
     <div class="conteiner-produto">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Valor (R$)</th>
-                <th>Marca</th>
-                <th>Categoria</th>
-                <th>Opção</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        
-        echo '<tr>';
-        echo '<td>' . $produto->getId() . '</td>';
-        echo '<td>' . $produto->getNome() . '</td>';
-        echo '<td>' . 'R$ ' . sprintf("%01.2f", $produto->getValor()) . '</td>';
-        echo '<td>' . $produto->getMarca() . '</td>';
-        echo '<td>' . $produto->getCategoria() . '</td>';
-        echo '<td>';
-        echo '<div class="alinhamento-link">';
-        echo '<a class="btn btn-primary" href="../../index.php?classe=Produto&metodo=edit&id=' . $produto->getId() . '">Editar</a>';
-        echo '<a class="btn btn-primary" href="../../index.php?classe=Produto&metodo=delete&id=' . $produto->getId() . '">Deletar</a>';
-        echo '</div>';
-        echo '</tr>';
-        
-        ?>
-        </tbody>
-    </table>
-    </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Valor (R$)</th>
+                    <th>Marca</th>
+                    <th>Categoria</th>
+                    <th>Opção</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            
+            echo '<tr>';
+            echo '<td>' . $produto->getId() . '</td>';
+            echo '<td>' . $produto->getNome() . '</td>';
+            echo '<td>' . 'R$ ' . sprintf("%01.2f", $produto->getValor()) . '</td>';
+            echo '<td>' . $produto->getMarca() . '</td>';
+            echo '<td>' . $produto->getCategoria() . '</td>';
+            echo '<td>';
+            echo '<div class="alinhamento-link">';
+            echo '<a class="btn btn-primary" href="../../index.php?classe=Produto&metodo=edit&id=' . $produto->getId() . '">Editar</a>';
+            echo '<a class="btn btn-primary" href="../../index.php?classe=Produto&metodo=delete&id=' . $produto->getId() . '">Deletar</a>';
+            echo '</div>';
+            echo '</tr>';
+            
+            ?>
+            </tbody>
+        </table>
+        </div>
 </body>
 </html>

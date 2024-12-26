@@ -51,38 +51,38 @@ $produtos = $_SESSION['produtos'];
     </nav>
     <a class="btn btn-primary alinha" href="../../index.php?classe=Produto&metodo=create" role="button">Novo</a>
     <div class="conteiner-produto"> 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Valor (R$)</th>
-                <th>Marca</th>
-                <th>Categoria</th>
-                <th>Opçães</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        foreach ($produtos as $produto) {
-            echo '<tr>';
-            echo '<td>' . $produto->getId() . '</td>';
-            echo '<td>' . $produto->getNome() . '</td>';
-            echo '<td>' . 'R$ ' . sprintf("%01.2f", $produto->getValor()) . '</td>';
-            echo '<td>' . $produto->getMarca() . '</td>';
-            echo '<td>' . $produto->getCategoria() . '</td>';
-            echo '<td>';
-            echo '<div class="alinhamento-link">';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Produto&metodo=edit&id=' . $produto->getId() . '">Editar</a>';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Produto&metodo=delete&id=' . $produto->getId() . '">Deletar</a>';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Produto&metodo=show&id=' . $produto->getId() . '">Mostrar</a>';
-            echo '</div>';
-            echo '</td>';
-            echo '</tr>';  
-        }
-        ?>
-        </tbody>
-    </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Valor (R$)</th>
+                    <th>Marca</th>
+                    <th>Categoria</th>
+                    <th>Opçães</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach ($produtos as $produto) {
+                echo '<tr>';
+                echo '<td>' . $produto->getId() . '</td>';
+                echo '<td>' . $produto->getNome() . '</td>';
+                echo '<td>' . 'R$ ' . sprintf("%01.2f", $produto->getValor()) . '</td>';
+                echo '<td>' . $produto->getMarca() . '</td>';
+                echo '<td>' . $produto->getCategoria() . '</td>';
+                echo '<td>';
+                echo '<div class="alinhamento-link">';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Produto&metodo=edit&id=' . $produto->getId() . '">Editar</a>';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Produto&metodo=delete&id=' . $produto->getId() . '">Deletar</a>';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Produto&metodo=show&id=' . $produto->getId() . '">Mostrar</a>';
+                echo '</div>';
+                echo '</td>';
+                echo '</tr>';  
+            }
+            ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

@@ -1,3 +1,16 @@
+<?php
+
+include_once __DIR__ . '/../../model/Compra.php';
+include_once __DIR__ . '/../../model/Cliente.php';
+include_once __DIR__ . '/../../model/Produto.php';
+
+session_start();
+
+$cliente_id = $_SESSION['cliente_id'];
+$produto_id = $_SESSION['produto_id'];
+$compra = $_SESSION['compra'];
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,26 +26,44 @@
     </nav>
 
     <div class="alinhamento">
-        <form action="" method="post">
+        <form action="../../index.php?classe=Compra&metodo=update&id=<?php echo $compra->getId() ?>" method="post">
             <div class="form-group">
-                <label for="clienteId">Cliente ID: </label>
-                <input type="number" class="form-control" name="clienteId" id="data" value="1" required>
+                <label for="cliente_id">Clientes</label>
+                <select class="form-control" name="cliente_id" id="cliente_id">
+                    <option value="" selected disabled>Selecione</option>
+                    <?php
+                    foreach ($cliente_id as $cliente) {
+                        echo "<option value='" . $cliente->getId() . "'";
+                        echo $cliente->getId() == $compra->getCliente_id() ? 'selected' : '';
+                        echo ">" . $cliente->getNome() . ' - ' . $cliente->getNum() . "</option>";
+                    }
+                    ?>
+                </select>
             </div>
             <div class="form-group">
-                <label for="produtoId">Produto ID: </label>
-                <input type="number" class="form-control" name="produtoId" id="data" value="1" required>
+                <label for="produto_id">Produtos</label>
+                <select class="form-control" name="produto_id" id="produto_id">
+                    <option value="" selected disabled>Selecione</option>
+                    <?php
+                    foreach ($produto_id as $produto) {
+                        echo "<option value='" . $produto->getId() . "'";
+                        echo $produto->getId() == $compra->getProduto_id() ? 'selected' : '';
+                        echo ">" . $produto->getNome() . ' - R$' . $produto->getValor() . "</option>";
+                    }
+                    ?>
+                </select>
             </div>
             <div class="form-group">
                 <label for="data">Data: </label>
-                <input type="date" class="form-control" name="data" id="data" value="2024-08-20" required>
+                <input type="date" class="form-control" name="data" id="data" value="<?php echo $compra->getData() ?>" required>
             </div>
             <div class="form-group">
                 <label for="horario">Horário</label>
-                <input type="time" class="form-control" name="horario" id="horario" value="10:30" required>
+                <input type="time" class="form-control" name="horario" id="horario" value="<?php echo $compra->getHorario() ?>" required>
             </div>
             <div class="form-group">
                 <label for="qtd">Quantidade</label>
-                <input type="number" class="form-control" name="qtd" id="qtd" value="3" required>
+                <input type="number" class="form-control" name="qtd" id="qtd" value="<?php echo $compra->getQtd() ?>" required>
             </div>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
