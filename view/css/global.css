@@ -37,6 +37,10 @@ table{
     width: 90vw;
 }
 
-.conteiner-produto, .conteiner-servico {
+.conteiner-produto, .conteiner-servico, .conteiner-agendamento {
     width: 50vw;
+}
+
+.conteiner-agendamento, .conteiner-compra {
+    width: 70vw;
 }

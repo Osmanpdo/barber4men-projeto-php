@@ -51,35 +51,35 @@ $servico = $_SESSION['servico'];
     </nav>
     <h2 class="alinha">Dados De Registro</h2>
     <div class="conteiner-servico">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Valor</th>
-                <th>Descrição</th>
-                <th>Opção</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        
-        echo '<tr>';
-        echo '<td>' . $servico->getId() . '</td>';
-        echo '<td>' . $servico->getNome() . '</td>';
-        echo '<td>' . 'R$ ' . sprintf("%01.2f", $servico->getValor()) . '</td>';
-        echo '<td>' . $servico->getDescricao() . '</td>';
-        echo '<td>';
-        echo '<div class="alinhamento-link">';
-        echo '<a class="btn btn-primary" href="../../index.php?classe=Servico&metodo=edit&id=' . $servico->getId() . '">Editar</a>';
-        echo '<a class="btn btn-primary" href="../../index.php?classe=Servico&metodo=delete&id=' . $servico->getId() . '">Deletar</a>';
-        echo '</div>';
-        echo '</td>';
-        echo '</tr>';  
-        
-        ?>
-        </tbody>
-    </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Descrição</th>
+                    <th>Opção</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            
+            echo '<tr>';
+            echo '<td>' . $servico->getId() . '</td>';
+            echo '<td>' . $servico->getNome() . '</td>';
+            echo '<td>' . 'R$ ' . sprintf("%01.2f", $servico->getValor()) . '</td>';
+            echo '<td>' . $servico->getDescricao() . '</td>';
+            echo '<td>';
+            echo '<div class="alinhamento-link">';
+            echo '<a class="btn btn-primary" href="../../index.php?classe=Servico&metodo=edit&id=' . $servico->getId() . '">Editar</a>';
+            echo '<a class="btn btn-primary" href="../../index.php?classe=Servico&metodo=delete&id=' . $servico->getId() . '">Deletar</a>';
+            echo '</div>';
+            echo '</td>';
+            echo '</tr>';  
+            
+            ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

@@ -51,42 +51,42 @@ $cliente = $_SESSION['cliente'];
     </nav>
     <h2 class="alinha">Dados De Registro</h2>
     <div class="conteiner">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Data de Nascimento</th>
-                <th>WhatsApp</th>
-                <th>Logradouro</th>
-                <th>Número</th>
-                <th>Bairro</th>
-                <th>Opção</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        
-        echo '<tr>';
-        echo '<td>' . $cliente->getId() . '</td>';
-        echo '<td>' . $cliente->getNome() . '</td>';
-        echo '<td>' . $cliente->getCpf() . '</td>';
-        echo '<td>' . $cliente->getDt_nasc() . '</td>';
-        echo '<td>' . $cliente->getWhatsapp() . '</td>';
-        echo '<td>' . $cliente->getLogradouro() . '</td>';
-        echo '<td>' . $cliente->getNum() . '</td>';
-        echo '<td>' . $cliente->getBairro() . '</td>';
-        echo '<td>';
-        echo '<div class="alinhamento-link">';
-        echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=edit&id=' . $cliente->getId() . '">Editar</a>';
-        echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=delete&id=' . $cliente->getId() . '">Deletar</a>';
-        echo '</div>';
-        echo '</tr>';
-        
-        ?>
-        </tbody>
-    </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Data de Nascimento</th>
+                    <th>WhatsApp</th>
+                    <th>Logradouro</th>
+                    <th>Número</th>
+                    <th>Bairro</th>
+                    <th>Opção</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            
+            echo '<tr>';
+            echo '<td>' . $cliente->getId() . '</td>';
+            echo '<td>' . $cliente->getNome() . '</td>';
+            echo '<td>' . $cliente->getCpf() . '</td>';
+            echo '<td>' . $cliente->getDt_nasc() . '</td>';
+            echo '<td>' . $cliente->getWhatsapp() . '</td>';
+            echo '<td>' . $cliente->getLogradouro() . '</td>';
+            echo '<td>' . $cliente->getNum() . '</td>';
+            echo '<td>' . $cliente->getBairro() . '</td>';
+            echo '<td>';
+            echo '<div class="alinhamento-link">';
+            echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=edit&id=' . $cliente->getId() . '">Editar</a>';
+            echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=delete&id=' . $cliente->getId() . '">Deletar</a>';
+            echo '</div>';
+            echo '</tr>';
+            
+            ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

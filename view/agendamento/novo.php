@@ -1,3 +1,14 @@
+<?php
+
+include_once __DIR__ . '/../../model/Cliente.php';
+include_once __DIR__ . '/../../model/Servico.php';
+
+session_start();
+
+$cliente_id = $_SESSION['cliente_id'];
+$servico_id = $_SESSION['servico_id'];
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,14 +23,30 @@
         <a class="navbar-brand" href="../home/homepage.php">Novo Agendamento</a>
     </nav>
     <div class="alinhamento">
-        <form action="" method="post">
+        <form action="../../index.php?classe=Agendamento&metodo=store" method="post">
             <div class="form-group">
-                <label for="clienteId">Cliente ID: </label>
-                <input type="number" class="form-control" name="clienteId" id="data" required>
+                <label for="cliente_id">Clientes</label>
+                <select class="form-control" name="cliente_id" id="cliente_id">
+                    <option value="" selected disabled>Selecione</option>
+                    <?php
+                    foreach ($cliente_id as $cliente) {
+                        echo "<option value='" . $cliente->getId() . "'";
+                        echo ">" . $cliente->getNome() . ' - ' . $cliente->getNum() . "</option>";
+                    }
+                    ?>
+                </select>
             </div>
             <div class="form-group">
-                <label for="servicoId">Serviço ID: </label>
-                <input type="number" class="form-control" name="servicoId" id="data" required>
+                <label for="servico_id">Serviços</label>
+                <select class="form-control" name="servico_id" id="servico_id">
+                    <option value="" selected disabled>Selecione</option>
+                    <?php
+                    foreach ($servico_id as $servico) {
+                        echo "<option value='" . $servico->getId() . "'";
+                        echo ">" . $servico->getNome() . ' - R$' . $servico->getValor() . "</option>";
+                    }
+                    ?>
+                </select>
             </div>
             <div class="form-group">
                 <label for="data">Data: </label>
@@ -35,7 +62,7 @@
             </div>
             <div class="form-group">
                 <label for="status">Status</label>
-                <select class="form-control" name="status" id="status">
+                <select class="form-control" name="status" id="status" required>
                     <option value="" selected disabled>Selecione</option>
                     <option value="0">Pendente</option>
                     <option value="1">Concluído</option>

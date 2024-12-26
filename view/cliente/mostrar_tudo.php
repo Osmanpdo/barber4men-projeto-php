@@ -50,45 +50,45 @@ $clientes = $_SESSION['clientes'];
     </nav>
     <a class="btn btn-primary alinha" href="../../index.php?classe=Cliente&metodo=create" role="button">Novo</a>
     <div class="conteiner"> 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Data de Nascimento</th>
-                <th>WhatsApp</th>
-                <th>Logradouro</th>
-                <th>Número</th>
-                <th>Bairro</th>
-                <th>Opções</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        foreach ($clientes as $cliente) {
-            echo '<tr>';
-            echo '<td>' . $cliente->getId() . '</td>';
-            echo '<td>' . $cliente->getNome() . '</td>';
-            echo '<td>' . $cliente->getCpf() . '</td>';
-            echo '<td>' . $cliente->getDt_nasc() . '</td>';
-            echo '<td>' . $cliente->getWhatsapp() . '</td>';
-            echo '<td>' . $cliente->getLogradouro() . '</td>';
-            echo '<td>' . $cliente->getNum() . '</td>';
-            echo '<td>' . $cliente->getBairro() . '</td>';
-            echo '<td>';
-            echo '<div class="alinhamento-link">';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=edit&id=' . $cliente->getId() . '">Editar</a>';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=delete&id=' . $cliente->getId() . '">Deletar</a>';
-            echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=show&id=' . $cliente->getId() . '">Mostrar</a>';
-            echo '</div>';
-            echo '</td>';
-            echo '</tr>';
-            
-        }
-        ?>
-        </tbody>
-    </table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Data de Nascimento</th>
+                    <th>WhatsApp</th>
+                    <th>Logradouro</th>
+                    <th>Número</th>
+                    <th>Bairro</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach ($clientes as $cliente) {
+                echo '<tr>';
+                echo '<td>' . $cliente->getId() . '</td>';
+                echo '<td>' . $cliente->getNome() . '</td>';
+                echo '<td>' . $cliente->getCpf() . '</td>';
+                echo '<td>' . $cliente->getDt_nasc() . '</td>';
+                echo '<td>' . $cliente->getWhatsapp() . '</td>';
+                echo '<td>' . $cliente->getLogradouro() . '</td>';
+                echo '<td>' . $cliente->getNum() . '</td>';
+                echo '<td>' . $cliente->getBairro() . '</td>';
+                echo '<td>';
+                echo '<div class="alinhamento-link">';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=edit&id=' . $cliente->getId() . '">Editar</a>';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=delete&id=' . $cliente->getId() . '">Deletar</a>';
+                echo '<a class="btn btn-primary" href="../../index.php?classe=Cliente&metodo=show&id=' . $cliente->getId() . '">Mostrar</a>';
+                echo '</div>';
+                echo '</td>';
+                echo '</tr>';
+                
+            }
+            ?>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
