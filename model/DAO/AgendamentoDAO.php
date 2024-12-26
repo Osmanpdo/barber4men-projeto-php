@@ -38,7 +38,7 @@ class AgendamentoDAO {
         $data = $agendamento->getData();
         $horario = $agendamento->getHorario();
         $duracao = $agendamento->getDuracao();
-        $status = $agendamento->getStatus();
+        $status = $agendamento->getStatus() ? 1 : 0;
 
         $sql = 'INSERT INTO agendamentos (cliente_id, servico_id, data, horario, duracao, status)
         VALUES(:cliente_id, :servico_id, :data, :horario, :duracao, :status)';
@@ -85,7 +85,7 @@ class AgendamentoDAO {
         $data = $agendamento->getData();
         $horario = $agendamento->getHorario();
         $duracao = $agendamento->getDuracao();
-        $status = $agendamento->getStatus();
+        $status = $agendamento->getStatus() ? 1 : 0;
 
         $sql = 'UPDATE agendamentos
         SET cliente_id = :cliente_id, servico_id = :servico_id, data = :data, horario = :horario, duracao = :duracao, status = :status
